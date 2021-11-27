@@ -1,6 +1,6 @@
 import re
 def solve(s):
-    names = s.split()
+    names = s.split(' ')
     title_names = []
     for name in names:
         if name[0].isdigit():
