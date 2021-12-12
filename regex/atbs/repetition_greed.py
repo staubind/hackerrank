@@ -76,3 +76,8 @@ mo = phoneRegex.search('123-123-1237, 555-555-5555, 123-1231')
 # it seems that sub groups are only counted once per style of sub group and the last match is the one that is returned.
 for i in range(3):
     print(mo.group(i))
+print('------')
+# to do non-greedy matches:
+digitRegex = re.compile(r'(\d){3,5}?') # w/ the question mark it gets the minimum, rather than the maximum
+mo = digitRegex.search('1234567890')
+print(mo.group())
