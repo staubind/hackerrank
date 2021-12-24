@@ -3,7 +3,6 @@ from itertools import groupby
 
 def count_occurrences(iterable):
     groups = [list(k) for g, k in groupby(iterable)]
-    print(groups)
     group_strings = map(lambda a: f'({len(a)}, {a[0]})', groups)
     return ' '.join(group_strings)
 
