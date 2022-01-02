@@ -1,19 +1,19 @@
-# based on the actual description of the problem the following commented out code
-# yields the correct results.
-# however, based on the examples and test cases, they mean to ask a different
-# question, which i have answered below all of this.
-# len_n = int(input())
-# n = input().split()
-# k = int(input())
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from itertools import combinations
+# n letters
+# k indices
+# find p(count=0|k chosen from n)
+# need count of a, then can calculate directly.
+len_n = int(input())
+n = input().split()
+k = int(input())
 
-# def prob_of_an_a(char_list, choose_k):
-#     count_a = 0
-#     total = len(char_list)
-#     for letter in char_list:
-#         if letter == 'a':
-#             count_a += 1
-#     q = 1 - count_a / total
-#     # 1 - p(o) = 1 - (total choose 0 8 p**0 * (1-p)**total)
-#     return 1 - (q)**total
+def prob_of_an_a(char_list, k):
+    combos = list(combinations(char_list,k))
+    count = 0
+    for tupple in combos:
+        if 'a' in tupple:
+            count += 1
+    return count/len(combos)
     
-# print(prob_of_an_a(n,k))
+print(prob_of_an_a(n,k))
